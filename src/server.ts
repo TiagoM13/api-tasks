@@ -1,5 +1,5 @@
-import express, { Response, Request } from 'express';
-import { router as tasksRoutes } from './routes';
+import express from 'express';
+import { router as tasksRoutes } from '@app/routes';
 
 const app = express()
 
