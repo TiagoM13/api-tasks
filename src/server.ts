@@ -1,10 +1,11 @@
 import express from 'express';
-import { router as tasksRoutes } from '@app/routes';
+
+import { appRoutes } from '@app/app/routes/app.routes';
 
 const app = express()
 
 app.use(express.json())
-app.use('/api', tasksRoutes)
+app.use('/api', appRoutes)
 
 const PORT = process.env.PORT;
 
