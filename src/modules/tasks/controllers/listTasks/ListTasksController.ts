@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 
-import TaskModel from "@app/modules/tasks/models/task.model"
+import TaskModel from "@modules/tasks/models/task.model"
 
 class ListTasksController {
   async listTasks(_req: Request, res: Response) {

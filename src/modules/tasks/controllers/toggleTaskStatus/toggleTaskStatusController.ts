@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 
-import { paramsSchema } from "@app/modules/tasks/schemas/task.schema"
-import TaskModel from "@app/modules/tasks/models/task.model"
+import { paramsSchema } from "@modules/tasks/schemas/task.schema"
+import TaskModel from "@modules/tasks/models/task.model"
 
 class ToggleTaskStatusController {
   async toggleTaskStatus(req: Request, res: Response) {

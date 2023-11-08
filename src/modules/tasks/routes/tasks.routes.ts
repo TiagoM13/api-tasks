@@ -1,19 +1,19 @@
 import { Router } from 'express'
 
-import ListTasksController from '@app/modules/tasks/controllers/listTasks/listTasksController'
-import ShowTaskController from '@app/modules/tasks/controllers/showTask/showTaskController'
-import createTaskController from '@app/modules/tasks/controllers/createTask/createTaskController'
-import UpdatedTaskController from '@app/modules/tasks/controllers/updateTask/updatedTaskController'
-import DeleteTaskController from '@app/modules/tasks/controllers/deleteTask/deleteTaskController'
-import ToggleTaskStatusController from '../controllers/toggleTaskStatus/toggleTaskStatusController'
+import listTasksController from '../controllers/listTasks/listTasksController'
+import showTaskController from '../controllers/showTask/showTaskController'
+import createTaskController from '../controllers/createTask/createTaskController'
+import updatedTaskController from '../controllers/updateTask/updatedTaskController'
+import toggleTaskStatusController from '../controllers/toggleTaskStatus/toggleTaskStatusController'
+import deleteTaskController from '../controllers/deleteTask/deleteTaskController'
 
 const taskRoutes = Router()
 
-taskRoutes.get('/', ListTasksController.listTasks)
-taskRoutes.get('/:id', ShowTaskController.showTask)
+taskRoutes.get('/', listTasksController.listTasks)
+taskRoutes.get('/:id', showTaskController.showTask)
 taskRoutes.post('/', createTaskController.createTask)
-taskRoutes.put("/:id", UpdatedTaskController.updateTask)
-taskRoutes.put("/:id/toggle-status", ToggleTaskStatusController.toggleTaskStatus)
-taskRoutes.delete("/:id", DeleteTaskController.deleteTask)
+taskRoutes.put("/:id", updatedTaskController.updateTask)
+taskRoutes.put("/:id/toggle-status", toggleTaskStatusController.toggleTaskStatus)
+taskRoutes.delete("/:id", deleteTaskController.deleteTask)
 
 export { taskRoutes }

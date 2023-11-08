@@ -1,5 +1,6 @@
 import { Tasks } from '@prisma/client';
-import { prisma } from "@app/app/prisma/client";
+
+import { prisma } from '@app/prisma/client';
 
 class TaskModel {
   async findTasks(): Promise<Tasks[]> {

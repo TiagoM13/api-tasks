@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import { schemaBody } from "@app/modules/tasks/schemas/task.schema";
-import TaskModel from "@app/modules/tasks/models/task.model";
+import { schemaBody } from "@modules/tasks/schemas/task.schema"
+import TaskModel from "@modules/tasks/models/task.model"
 
 class CreateTaskController {
   async createTask(req: Request, res: Response) {

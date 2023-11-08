@@ -11,8 +11,11 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": [
-        "*"
-      ]
+        "app/*"
+      ],
+      "@modules/*": [
+        "modules/*"
+      ],
     }
   },
   "include": [
