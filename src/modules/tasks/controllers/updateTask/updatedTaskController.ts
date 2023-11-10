@@ -1,35 +1,19 @@
 import { Request, Response } from "express";
 
 import { paramsSchema, schemaBody } from "@modules/tasks/schemas/task.schema"
-import TaskModel from "@modules/tasks/models/task.model"
+import { UpdatedTaskService } from "./UpdatedTaskService";
 
 class UpdatedTaskController {
-  async updateTask(req: Request, res: Response) {
-    try {
-      const { id } = paramsSchema.parse(req.params)
-      const { title } = schemaBody.parse(req.body)
+  constructor(private updatedTask: UpdatedTaskService) { }
 
-      let task = await TaskModel.findTaskById(id)
+  async handle(req: Request, res: Response) {
+    const { id } = paramsSchema.parse(req.params)
+    const { title } = schemaBody.parse(req.body)
 
-      if (!task) {
-        return res.status(404).json({ message: 'Task not found.' })
-      }
+    const task = await this.updatedTask.execute(id, title)
 
-      if (title.trim() === '') {
-        return res.status(400).json({ message: 'The “title” field is mandatory.' });
-      }
-
-      if (title.length < 2) {
-        return res.status(404).json({ message: 'The "title" field must contain at least 2 characters.' })
-      }
-
-      task = await TaskModel.updateTask(id, title)
-
-      return res.status(201).json(task)
-    } catch (error) {
-      return res.status(500).json({ message: 'Error updating task' });
-    }
+    return res.status(201).json(task)
   }
 }
 
-export default new UpdatedTaskController()
+export { UpdatedTaskController }

@@ -1,8 +1,9 @@
 import { Tasks } from '@prisma/client';
 
 import { prisma } from '@app/prisma/client';
+import { TaskRepository } from '../TaskRepository'
 
-class TaskModel {
+class PrismaTaskRepository implements TaskRepository {
   async findTasks(): Promise<Tasks[]> {
     try {
       return await prisma.tasks.findMany()
@@ -91,4 +92,4 @@ class TaskModel {
   }
 }
 
-export default new TaskModel
+export { PrismaTaskRepository }

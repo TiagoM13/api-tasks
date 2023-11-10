@@ -1,26 +1,18 @@
 import { Request, Response } from "express"
 
 import { paramsSchema } from "@modules/tasks/schemas/task.schema"
-import TaskModel from "@modules/tasks/models/task.model"
+import { DeleteTaskService } from "./DeleteTaskService"
 
 class DeleteTaskController {
-  async deleteTask(req: Request, res: Response) {
-    try {
-      const { id } = paramsSchema.parse(req.params)
+  constructor(private deleteTask: DeleteTaskService) { }
 
-      const task = await TaskModel.findTaskById(id)
+  async handle(req: Request, res: Response) {
+    const { id } = paramsSchema.parse(req.params)
 
-      if (!task) {
-        return res.status(404).json({ message: 'Task not found' })
-      }
+    await this.deleteTask.execute(id)
 
-      await TaskModel.deleteTask(id)
-
-      return res.status(204).json()
-    } catch (error) {
-      return res.status(500).json({ message: 'Error deleting task' });
-    }
+    return res.status(201).json()
   }
 }
 
-export default new DeleteTaskController()
+export { DeleteTaskController }
