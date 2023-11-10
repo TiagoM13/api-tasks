@@ -1,17 +1,15 @@
 import { Request, Response } from "express"
 
-import TaskModel from "@modules/tasks/models/task.model"
+import { ListTasksService } from "./ListTasksService"
 
 class ListTasksController {
-  async listTasks(_req: Request, res: Response) {
-    try {
-      const tasks = await TaskModel.findTasks()
+  constructor(private listTasks: ListTasksService) { }
 
-      return res.json(tasks)
-    } catch (error) {
-      return res.status(404).json({ message: "Error listing tasks" })
-    }
+  async handle(_req: Request, res: Response) {
+    const tasks = await this.listTasks.execute()
+
+    return res.json(tasks)
   }
 }
 
-export default new ListTasksController()
+export { ListTasksController }

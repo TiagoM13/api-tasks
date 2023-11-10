@@ -1,20 +1,18 @@
 import { Request, Response } from "express"
 
 import { paramsSchema } from "@modules/tasks/schemas/task.schema"
-import TaskModel from "@modules/tasks/models/task.model"
+import { ToggleTaskStatusService } from "./ToggleTaskStatusService"
 
 class ToggleTaskStatusController {
-  async toggleTaskStatus(req: Request, res: Response) {
-    try {
-      const { id } = paramsSchema.parse(req.params)
+  constructor(private toggleTaskStatus: ToggleTaskStatusService) { }
 
-      const updatedTask = await TaskModel.toggleTaskStatus(id)
+  async handle(req: Request, res: Response) {
+    const { id } = paramsSchema.parse(req.params)
 
-      return res.status(200).json(updatedTask)
-    } catch (error) {
-      return res.status(500).json({ message: 'Error toggling task status.' })
-    }
+    const task = await this.toggleTaskStatus.execute(id)
+
+    return res.status(200).json(task)
   }
 }
 
-export default new ToggleTaskStatusController()
+export { ToggleTaskStatusController }
