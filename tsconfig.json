@@ -16,6 +16,9 @@
       "@modules/*": [
         "modules/*"
       ],
+      "@repositories/*": [
+        "repositories/*"
+      ],
     }
   },
   "include": [
