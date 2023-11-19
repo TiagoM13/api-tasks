@@ -1,6 +1,6 @@
 import { PrismaTaskRepository } from "repositories/tasks/prisma/PrismaTaskRepository";
 import { DeleteTaskService } from "./DeleteTaskService";
-import { DeleteTaskController } from "./DeleteTaskController";
+import { DeleteTaskController } from "./DeleteController";
 
 export const DeleteTaskFactory = () => {
   const tasksRepository = new PrismaTaskRepository();
