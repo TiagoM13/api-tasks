@@ -1,5 +1,5 @@
 import { PrismaTaskRepository } from "@repositories/tasks/prisma/PrismaTaskRepository";
-import { ShowTaskController } from "./ShowTaskController";
+import { ShowTaskController } from "./ShowController";
 import { ShowTaskService } from "./ShowTaskService";
 
 export const ShowTaskFactory = () => {

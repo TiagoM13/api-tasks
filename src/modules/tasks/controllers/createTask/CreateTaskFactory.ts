@@ -1,6 +1,6 @@
 import { PrismaTaskRepository } from "@repositories/tasks/prisma/PrismaTaskRepository";
 import { CreateTaskService } from "./CreateTaskService"
-import { CreateTaskController } from "./CreateTaskController"
+import { CreateTaskController } from "./CreateController"
 
 export const CreateTaskFactory = () => {
   const tasksRepository = new PrismaTaskRepository();

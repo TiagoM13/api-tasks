@@ -1,6 +1,6 @@
 import { PrismaTaskRepository } from "@repositories/tasks/prisma/PrismaTaskRepository"
 import { UpdatedTaskService } from "./UpdatedTaskService"
-import { UpdatedTaskController } from "./UpdatedTaskController"
+import { UpdatedTaskController } from "./UpdatedController"
 
 const UpdatedTaskFactory = () => {
   const taskRepository = new PrismaTaskRepository()
