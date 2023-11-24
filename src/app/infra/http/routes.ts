@@ -2,8 +2,8 @@ import { Router } from "express";
 
 import { taskRoutes } from "@modules/tasks/routes/tasks.routes";
 
-const appRoutes = Router();
+const routes = Router();
 
-appRoutes.use('/tasks', taskRoutes)
+routes.use('/tasks', taskRoutes)
 
-export { appRoutes }
+export { routes }

@@ -1,7 +1,7 @@
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class UpdatedTaskService {
-  constructor(private taskRepository: TaskRepository) { }
+  constructor(private readonly taskRepository: TaskRepository) { }
 
   async execute(id: string, title: string) {
     let task = await this.taskRepository.findTaskById(id)

@@ -1,12 +1,12 @@
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class DeleteTaskService {
-  constructor(private taskRepository: TaskRepository) { }
+  constructor(private readonly taskRepository: TaskRepository) { }
 
   async execute(id: string) {
     const task = await this.taskRepository.findTaskById(id);
 
-    if (!task) {
+    if (!task || task.id !== id) {
       throw new Error('Task not found')
     }
 
