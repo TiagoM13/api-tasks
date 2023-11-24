@@ -1,7 +1,7 @@
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class CreateTaskService {
-  constructor(private taskRepository: TaskRepository) { }
+  constructor(private readonly taskRepository: TaskRepository) { }
 
   async execute(title: string) {
     if (title.trim() === '') {
