@@ -1,7 +1,7 @@
 import { Tasks } from '@prisma/client';
 
 import { prisma } from '@app/prisma/client';
-import { TaskRepository } from '../TaskRepository'
+import { TaskRepository } from '@repositories/tasks/TaskRepository'
 
 class PrismaTaskRepository implements TaskRepository {
   async findTasks(): Promise<Tasks[]> {

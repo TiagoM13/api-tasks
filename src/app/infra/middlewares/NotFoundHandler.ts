@@ -7,4 +7,4 @@ export function notFoundHandler(request: Request, response: Response): Response 
   return response.status(404).json({
     message: `${method} ${path} - Route not found`
   })
-} 
+}

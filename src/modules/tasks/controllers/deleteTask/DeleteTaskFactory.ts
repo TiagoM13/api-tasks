@@ -1,4 +1,4 @@
-import { PrismaTaskRepository } from "repositories/tasks/prisma/PrismaTaskRepository";
+import { PrismaTaskRepository } from "@repositories/tasks/prisma/PrismaTaskRepository";
 import { DeleteTaskService } from "./DeleteTaskService";
 import { DeleteTaskController } from "./DeleteController";
 
