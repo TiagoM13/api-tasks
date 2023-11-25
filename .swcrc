@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": false
+    },
+    "target": "es2020",
+    "paths": {
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@repositories/*": [
+        "./src/repositories/*"
+      ],
+      "@": [
+        "./*"
+      ]
+    },
+    "baseUrl": "./"
+  },
+  "module": {
+    "type": "commonjs"
+  }
+}

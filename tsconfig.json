@@ -1,27 +1,37 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2021",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "dist",
     "esModuleInterop": true,
+    "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "./src",
+    "noImplicitAny": true,
+    "baseUrl": ".",
     "paths": {
       "@app/*": [
-        "app/*"
+        "./src/app/*"
       ],
       "@modules/*": [
-        "modules/*"
+        "./src/modules/*"
       ],
       "@repositories/*": [
-        "repositories/*"
+        "./src/repositories/*"
       ],
+      "@": [
+        "./*"
+      ]
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/"
   ]
 }
