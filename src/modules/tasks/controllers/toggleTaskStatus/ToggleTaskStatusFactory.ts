@@ -1,5 +1,5 @@
 import { PrismaTaskRepository } from "@repositories/tasks/prisma/PrismaTaskRepository";
-import { ToggleTaskStatusController } from "./ToggleController";
+import { ToggleTaskStatusController } from "./ToggleTaskStatusController";
 import { ToggleTaskStatusService } from "./ToggleTaskStatusService";
 
 export const ToggleTaskStatusFactory = () => {
