@@ -41,7 +41,7 @@ Siga as etapas abaixo para configurar e executar a API Tasks localmente:
 **Clone o Repositório:**
 
 ```bash
-  git clone https://github.com/seu-usuario/api-tasks.git
+  git clone https://github.com/TiagoM13/backend_todolist.git
   cd api-tasks
 ```
 **Instale as Dependências:**
