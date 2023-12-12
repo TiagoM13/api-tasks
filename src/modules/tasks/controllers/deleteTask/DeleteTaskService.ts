@@ -1,3 +1,4 @@
+import { AppError } from "@app/errors/AppError";
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class DeleteTaskService {
@@ -7,7 +8,7 @@ class DeleteTaskService {
     const task = await this.taskRepository.findTaskById(id);
 
     if (!task || task.id !== id) {
-      throw new Error('Task not found')
+      throw new AppError('Task not found.', 404)
     }
 
     await this.taskRepository.deleteTask(id)

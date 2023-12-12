@@ -1,3 +1,4 @@
+import { AppError } from "@app/errors/AppError";
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class CreateTaskService {
@@ -5,11 +6,11 @@ class CreateTaskService {
 
   async execute(title: string) {
     if (title.trim() === '') {
-      throw new Error('The “title” field is mandatory.');
+      throw new AppError('The “title” field is mandatory.');
     }
 
     if (title.length < 2) {
-      throw new Error('The "title" field must contain at least 2 characters.');
+      throw new AppError('The "title" field must contain at least 2 characters.');
     }
 
     const task = await this.taskRepository.createTask(title)
