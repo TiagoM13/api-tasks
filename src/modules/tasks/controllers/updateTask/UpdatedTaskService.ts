@@ -1,3 +1,4 @@
+import { AppError } from "@app/errors/AppError";
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class UpdatedTaskService {
@@ -7,15 +8,19 @@ class UpdatedTaskService {
     let task = await this.taskRepository.findTaskById(id)
 
     if (!task) {
-      throw new Error('Task not found.')
+      throw new AppError('Task not found.', 404)
     }
 
     if (title.trim() === '') {
-      throw new Error('The “title” field is mandatory.');
+      throw new AppError('The “title” field is mandatory.');
     }
 
     if (title.length < 2) {
-      throw new Error('The "title" field must contain at least 2 characters.')
+      throw new AppError('The "title" field must contain at least 2 characters.')
+    }
+
+    if (task.status === 'completed') {
+      throw new AppError('Unable to update a completed task.', 400);
     }
 
     task = await this.taskRepository.updateTask(id, title)

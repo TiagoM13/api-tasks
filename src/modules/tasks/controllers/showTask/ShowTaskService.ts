@@ -1,3 +1,4 @@
+import { AppError } from "@app/errors/AppError";
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
 class ShowTaskService {
@@ -7,7 +8,7 @@ class ShowTaskService {
     const task = await this.taskRepository.findTaskById(id);
 
     if (!task) {
-      throw new Error('Task not found')
+      throw new AppError('Task not found.', 404)
     }
 
     return task
