@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "swc src -d dist",
+    "vercel-build": "npx prisma migrate deploy",
     "start": "node dist/server.js",
     "start:dev": "tsx watch src/server.ts",
     "test": "vitest run --coverage --silent=true",
