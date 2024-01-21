@@ -1,5 +1,5 @@
 {
-  "name": "backend_todolist",
+  "name": "api-tasks",
   "version": "0.1.0",
   "description": "gerenciador de tarefas (Tasks Organized)",
   "main": "index.js",
