@@ -41,7 +41,7 @@ Siga as etapas abaixo para configurar e executar a API Tasks localmente:
 **Clone o Repositório:**
 
 ```bash
-  git clone https://github.com/TiagoM13/backend_todolist.git
+  git clone https://github.com/TiagoM13/api-tasks.git
   cd api-tasks
 ```
 **Instale as Dependências:**
@@ -72,13 +72,13 @@ O servidor será iniciado em http://localhost:3333 por padrão, .
   # ou
   yarn build
 ```
-**Executar Testes:**
+<!-- **Executar Testes:**
 
 ```bash
   npm test
   # ou
   yarn test
-```
+``` -->
 
 ## Estrutura JSON de uma Tarefa 📊
 

@@ -1,3 +1,4 @@
+import { StatusTask } from "@app/enum/task";
 import { AppError } from "@app/errors/AppError";
 import { TaskRepository } from "@repositories/tasks/TaskRepository";
 
@@ -19,7 +20,7 @@ class UpdatedTaskService {
       throw new AppError('The "title" field must contain at least 2 characters.')
     }
 
-    if (task.status === 'completed') {
+    if (task.status === StatusTask.COMPLETED) {
       throw new AppError('Unable to update a completed task.', 400);
     }
 
